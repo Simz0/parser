@@ -1,20 +1,22 @@
 from bs4 import BeautifulSoup
 import requests
 
-ingrid=[]
-url="https://eda.ru/recepty/zavtraki/sirniki-iz-tvoroga-18506"
-page=requests.get(url)
+ingrid = []
+url = input()
+page = requests.get(url)
 
-kasha=BeautifulSoup(page.text, "html.parser")
-allingrid=kasha.findAll('span', itemprop="recipeIngredient")
+kasha = BeautifulSoup(page.text, "html.parser")
+allingrid = kasha.findAll('span', itemprop="recipeIngredient")
 
 print(allingrid)
 for ing in allingrid:
     ingrid.append(ing.text)
+    
 print(ingrid)
-'''
-for data in allingrid:
-    if data.find('span',itemprop_="recipeIngredient"):
-        ingrid.append(data.text)
-print(ingrid)
-'''
+
+namet = []
+name = kasha.findAll('h1', class_="emotion-gl52ge")
+for data in name:
+    namet.append(data.text)
+    
+print(namet)  # тут есть проблема, так как на некоторых названиях происходит баг :/
