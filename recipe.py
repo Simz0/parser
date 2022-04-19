@@ -9,4 +9,5 @@ for filename in os.listdir('recipes'):
     title = filename.replace(".html", "")
     description = get_description(page_text)
     ingredients = get_ingredients(page_text)
-    print(ingredients)
+    energy = get_energy(page_text)
+    steps = get_steps(page_text)
