@@ -20,6 +20,6 @@ if __name__ == "__main__":
         except Exception as error:
             print(error)
         if page_text != "":
-            rec = "\n".join(get_page_recipes(page_text))
+            rec = "\n".join(get_page_recipes(page_text)) + "\n"
             with open('result.txt', 'a') as f:
                 f.write(rec)
