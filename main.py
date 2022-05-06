@@ -1,7 +1,5 @@
 import json
 import os
-import time
-
 import requests
 
 from utils import *
@@ -20,7 +18,6 @@ if __name__ == "__main__":
         k, v = eval(obj)
         recipes[k] = v
     for filename in os.listdir(FOLDER):
-        time.sleep(1)
         try:
             with open(f'{FOLDER}/{filename}') as f:
                 page_text = '\n'.join(f.readlines())
